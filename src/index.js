@@ -9,4 +9,4 @@ import * as data from './data/info';
 import { Main } from './Main';
 
 const root = ReactDOM.createRoot(document.querySelector('#root'));
-root.render(<Main {...data} />);
+root.render(<Main {...data}/>);
