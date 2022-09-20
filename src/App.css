@@ -7,18 +7,38 @@
 body {
     background-color: #544b97;
     color: #ffffff;
+    font-family: 'Capriola', sans-serif;
     display: flex;
     justify-content: center;
     min-height: 100vh;
-    padding: 2rem;
+    padding: 2rem 2rem 4rem 2rem;
+}
+
+h1, h3 {
+    text-align: center;
+}
+
+.form-control {
+    background-color:#544b97;
+    color: white;
+}
+
+.input-x {
+    background-color:#3b195c;
+    color: #00d890;
+}
+
+.input-o {
+    background-color:#3b195c;
+    color: #b700ff;
 }
 
 .board {
     border: 1rem solid #00b4d8;
     border-radius: 5%;
     background: #00b4d8;
-    width: 500px;
-    height: 500px;
+    width: 350px;
+    height: 350px;
     display: grid;
     grid-template: repeat(3, 1fr) / repeat(3, 1fr);
     gap: 1rem;
@@ -28,7 +48,7 @@ body {
     background: #3b195c;
     border: none;
     border-radius: 10%;
-    font-size: 5rem;
+    font-size: 3.5rem;
     cursor: pointer;
     outline: none;
 }
@@ -58,4 +78,9 @@ li {
     cursor: pointer;
     padding: 0.5rem;
     margin: 0.5rem 1rem;
+}
+
+.footer {
+    background-color: rgb(46, 46, 46);
+    font-family: 'Rokkitt', serif;
 }
