@@ -4,7 +4,7 @@ import Board from './components/Board'
 import Footer from './components/Footer';
 import Players from "./components/Players";
 
-export function Main({ footer }) {
+const App = ({footer}) => {
 
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [stepNumber, setStepNumber] = useState(0);
@@ -35,3 +35,5 @@ export function Main({ footer }) {
     </>
   )
 }
+
+export default App;
