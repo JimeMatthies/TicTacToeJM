@@ -3,6 +3,8 @@ import React, { useState } from "react";
 const Players = () => {
     const [player1, setPlayer1] = useState("July");
     const [player2, setPlayer2] = useState("Vale")
+    console.log(player1);
+    console.log(player2);
     return (
         <div className="row mb-3">
             <div className="col input-group">

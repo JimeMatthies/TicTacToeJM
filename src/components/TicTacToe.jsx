@@ -2,10 +2,12 @@ import React, { useState } from "react";
 /* import PropTypes from "prop-types"; */
 
 const TicTacToe = () => {
-    const [turn, setTurn] = useState("Player1");
+    const [turn, setTurn] = useState(player1);
     const [cells, setCells] = useState(Array(9).fill(''));
     const [ganador, setGanador] = useState();
-
+    const [player1, setPlayer1] = useState("July");
+    const [player2, setPlayer2] = useState("Vale");
+    
     const checkforWinner = (cuadrados) => {
         let combos = {
             across: [
@@ -41,32 +43,58 @@ const TicTacToe = () => {
         }
     };
 
+    const Players = () => {
+        return (
+            <div className="row mb-3">
+                <div className="col input-group">
+                    <span className="input-group-text input-x" id="basic-addon1">X</span>
+                    <input type="text" className="form-control" value={player1} onChange={(e) => setPlayer1(e.target.value)} />
+                </div>
+                <div className="col input-group">
+                    <span className="input-group-text input-o" id="basic-addon1">O</span>
+                    <input type="text" className="form-control" value={player2} onChange={(e) => setPlayer2(e.target.value)} />
+                </div>
+            </div>
+        );
+    };
+
     const manoClick = (num) => {
         if (cells[num] !== ""){
             alert("Already Clicked!");
             return;
         }
         let cuadrados = [...cells]
-        if (turn === "Player1") {
-            cuadrados [num] = "X"
-            setTurn("Player2")
-        } else {
+        if (turn === player1) {
             cuadrados [num] = "O"
-            setTurn("Player1")
+            setTurn(player2)
+        } else {
+            cuadrados [num] = "X"
+            setTurn(player1)
         }
         checkforWinner(cuadrados);
         setCells(cuadrados);
-    }
+    };
+
+    const handleRestart = () => {
+        setGanador(null);
+        setCells(Array(9).fill(''));
+
+    };
 
     const Cell = ({ num }) => {
         const style = cells[num] ? `squares ${cells[num]}` : `squares`;
         return <div className={style} onClick={() => manoClick(num)}>{cells[num]}</div>
-    }
+    };
 
     return (
         <>
-            <div>
-                <p>Turn: {turn}</p> 
+            <div className="row d-flex justify-content-evenly">
+                <div className="col d-flex justify-content-center">
+                    <p>Next Player: {turn}</p>
+                </div>
+                <div className="col d-flex justify-content-center">
+                    {ganador && (<p>{ganador} is the Winner!</p>)}
+                </div>
             </div>
             <div className="d-flex justify-content-center">
                 <div className="board">
@@ -82,12 +110,9 @@ const TicTacToe = () => {
                 </div>
             </div>            
             <div>
-                {ganador && (
                     <>
-                        <p>{ganador} is the Winner!</p>
-                        <button>Play Again</button>
+                        <button onClick={() => handleRestart()}>Play Again</button>
                     </>
-                )}
             </div>
         
         </>
