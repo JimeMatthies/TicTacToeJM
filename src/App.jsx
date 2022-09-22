@@ -3,8 +3,9 @@ import { whoIsWinner } from "./helper";
 import Board from './components/Board'
 import Footer from './components/Footer';
 import Players from "./components/Players";
+import { copyright } from "./data/info";
 
-const App = ({footer}) => {
+const App = ({copyright}) => {
 
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [stepNumber, setStepNumber] = useState(0);
@@ -31,7 +32,7 @@ const App = ({footer}) => {
       <Players/>
       <h3>{winner ? "Winner: " + winner : "Next Player: " + xo}</h3>
       <Board squares={history[stepNumber]} onClick={handleClick} />
-      <Footer footer={footer} />
+      <Footer footer={copyright} />
     </>
   )
 }

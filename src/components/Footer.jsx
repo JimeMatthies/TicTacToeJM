@@ -6,7 +6,7 @@ const Footer = ({ footer }) => {
         <div className="container-fluid">
             <div className="row">
                 <div className="footer col-lg-12 text-center pt-3 fixed-bottom text-white">
-                    <p>Copyright &copy;{footer.text} </p>
+                    <p>Copyright &copy; {footer.text} </p>
                 </div>
             </div>
         </div>
