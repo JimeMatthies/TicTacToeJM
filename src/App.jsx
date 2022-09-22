@@ -3,7 +3,7 @@ import { whoIsWinner } from "./helper";
 import Board from './components/Board'
 import Footer from './components/Footer';
 import Players from "./components/Players";
-import { copyright } from "./data/info";
+import TicTacToe from "./components/TicTacToe";
 
 const App = ({copyright}) => {
 
@@ -32,6 +32,7 @@ const App = ({copyright}) => {
       <Players/>
       <h3>{winner ? "Winner: " + winner : "Next Player: " + xo}</h3>
       <Board squares={history[stepNumber]} onClick={handleClick} />
+      <TicTacToe />
       <Footer footer={copyright} />
     </>
   )
