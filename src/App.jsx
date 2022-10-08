@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 
 
 const App = ({ copyright }) => {
-    const [turn, setTurn] = useState(player1);
+    const [turn, setTurn] = useState("July");
     const [cells, setCells] = useState(Array(9).fill(''));
     const [winner, setWinner] = useState();
     const [player1, setPlayer1] = useState("July");
@@ -73,7 +73,7 @@ const App = ({ copyright }) => {
     return (
         <>
             <h1>Tic Tac Toe</h1>
-            <Players playerOne={player1} playerTwo={player2} onChangeOne={(e) => {setPlayer1(e.target.value); setTurn(e.target.value)}} onChangeTwo={(e) => setPlayer2(e.target.value)} />
+            <Players playerOne={player1} playerTwo={player2} onChangeOne={(e) => {setPlayer1(e.target.value); setTurn(e.target.value)}} onChangeTwo={(e) => {setPlayer2(e.target.value); setTurn(e.target.value)}} />
             <Score turn={turn} winner={winner} />
             <Board cells={cells} onClick={handleClick} />
             <div className="d-grid gap-4 d-flex justify-content-center mt-3">
